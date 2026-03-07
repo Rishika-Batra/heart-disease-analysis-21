@@ -2,134 +2,174 @@
 {% block content %}
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
 }
 
-body{
-    font-family: 'Outfit', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #333;
-    min-height: 100vh;
+html, body {
+    font-family: 'Montserrat', sans-serif !important;
+    background: #0a0e27 !important;
+    color: #ffffff !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
 }
 
 /* Container */
 .dashboard-container{
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 80px 40px !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 50%, #0f1428 100%) !important;
+    min-height: 100vh !important;
 }
 
 /* Page Title */
 .page-title{
-    text-align: center;
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 60px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    letter-spacing: -1px;
+    text-align: center !important;
+    font-size: 56px !important;
+    font-weight: 900 !important;
+    margin-bottom: 80px !important;
+    color: #fff !important;
+    background: linear-gradient(120deg, #00d4ff, #0099ff, #6633ff) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    letter-spacing: -2px !important;
+    text-transform: uppercase !important;
+    filter: drop-shadow(0 10px 30px rgba(0, 212, 255, 0.3)) !important;
 }
 
-/* Tabs */
+/* Tabs Container */
 .tabs{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-    background: rgba(255,255,255,0.15);
-    padding: 20px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 60px !important;
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%) !important;
+    padding: 30px 40px !important;
+    border-radius: 30px !important;
+    border: 2px solid rgba(0, 212, 255, 0.2) !important;
+    backdrop-filter: blur(20px) !important;
 }
 
 .tab-btn{
-    padding: 14px 32px;
-    border-radius: 12px;
-    border: 2px solid transparent;
-    cursor: pointer;
-    font-weight: 600;
-    background: rgba(255,255,255,0.2);
-    color: white;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    padding: 16px 40px !important;
+    border-radius: 15px !important;
+    border: 2px solid rgba(0, 212, 255, 0.4) !important;
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(102, 51, 255, 0.1)) !important;
+    color: #00d4ff !important;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 .tab-btn:hover{
-    background: rgba(255,255,255,0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(102, 51, 255, 0.2)) !important;
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4) !important;
+    border-color: rgba(0, 212, 255, 0.8) !important;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.6) !important;
 }
 
 .tab-btn.active{
-    background: white;
-    color: #667eea;
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-    border-color: white;
+    background: linear-gradient(135deg, #00d4ff, #0099ff) !important;
+    color: #0a0e27 !important;
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5) !important;
+    border-color: #00d4ff !important;
+    font-weight: 900 !important;
+    text-shadow: none !important;
 }
 
 /* Dashboard Glass Box */
 .dash{
-    display: none;
-    animation: slideUp 0.5s ease;
+    display: none !important;
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .active-dash{
-    display: block;
+    display: block !important;
 }
 
 iframe{
-    width: 100%;
-    height: 850px;
-    border-radius: 16px;
-    border: none;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    background: white;
+    width: 100% !important;
+    height: 850px !important;
+    border-radius: 25px !important;
+    border: 2px solid rgba(0, 212, 255, 0.3) !important;
+    box-shadow: 0 30px 70px rgba(0, 212, 255, 0.2), inset 0 0 60px rgba(102, 51, 255, 0.1) !important;
+    background: #1a1f3a !important;
+    backdrop-filter: blur(10px) !important;
 }
 
 /* Animation */
-@keyframes slideUp{
-    from{
+@keyframes popIn {
+    0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: scale(0.8) translateY(30px);
     }
-    to{
+    50% {
+        opacity: 0.8;
+    }
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1) translateY(0);
     }
 }
 
 /* Responsive */
-@media(max-width:768px){
+@media(max-width:1024px){
     .dashboard-container {
-        padding: 30px 15px;
+        padding: 60px 30px !important;
     }
     
-    .page-title{
-        font-size: 32px;
-        margin-bottom: 40px;
+    .page-title {
+        font-size: 42px !important;
+        margin-bottom: 60px !important;
     }
     
     .tabs {
-        gap: 10px;
-        padding: 15px;
+        padding: 25px 30px !important;
+        gap: 15px !important;
     }
     
     .tab-btn {
-        padding: 10px 20px;
-        font-size: 13px;
+        padding: 14px 32px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media(max-width:768px){
+    .dashboard-container {
+        padding: 40px 20px !important;
     }
     
-    iframe{
-        height: 600px;
+    .page-title {
+        font-size: 32px !important;
+        margin-bottom: 40px !important;
+    }
+    
+    .tabs {
+        padding: 20px !important;
+        gap: 10px !important;
+        flex-direction: column !important;
+    }
+    
+    .tab-btn {
+        padding: 12px 24px !important;
+        font-size: 12px !important;
+        width: 100% !important;
+    }
+    
+    iframe {
+        height: 600px !important;
     }
 }
 </style>
