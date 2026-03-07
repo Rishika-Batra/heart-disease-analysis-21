@@ -74,6 +74,15 @@ html, body{
     box-shadow: 0 25px 50px rgba(0, 212, 255, 0.5) !important;
 }
 
+.hero-right img{
+    width: 100% !important;
+    max-width: 400px !important;
+    border-radius: 20px !important;
+    border: 2px solid rgba(0, 212, 255, 0.3) !important;
+    box-shadow: 0 30px 60px rgba(0, 212, 255, 0.2) !important;
+    animation: float 4s ease-in-out infinite !important;
+}
+
 @keyframes float{
     0%, 100% { transform: translateY(0) !important; }
     50% { transform: translateY(-20px) !important; }
@@ -249,6 +258,10 @@ section{
         font-size: 36px !important;
     }
     
+    .hero-right img{
+        max-width: 300px !important;
+    }
+    
     section {
         padding: 40px 20px !important;
     }
@@ -271,6 +284,9 @@ section{
             Data-driven cardiovascular risk insights powered by interactive Tableau dashboards.
         </p>
         <a href="/dashboard" class="hero-btn">Launch Dashboard</a>
+    </div>
+    <div class="hero-right">
+        <img src="https://images.unsplash.com/photo-1588776814546-ec7e6b2b4c0c?auto=format&fit=crop&w=600&q=80">
     </div>
 </section>
 
